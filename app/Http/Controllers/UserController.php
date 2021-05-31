@@ -24,7 +24,7 @@ class UserController extends Controller
         }
     }
 
-    public function getDashboard(Request $request){
+    public function getDashboard(){
         $this->data['page_title'] = 'Dashboard';
         return view('admin.dashboard', ['data' => $this->data]);
     }
@@ -34,5 +34,10 @@ class UserController extends Controller
         $this->data['page_title'] = 'Users List';
         $return_data['users'] = $users;
         return view('users', ['data' => array_merge($this->data, $return_data)]);
+    }
+
+    public function logOut(){
+        Auth::logout();
+        return redirect('login')->with('success_message', 'Logged Out Successfully');
     }
 }
