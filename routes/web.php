@@ -22,4 +22,5 @@ Route::get('login', [UserController::class, 'getLogin']);
 Route::post('login', [UserController::class, 'postLogin']);
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [UserController::class, 'getDashboard']);
+    Route::get('users', [UserController::class, 'getUsers']);
 });

@@ -28,4 +28,11 @@ class UserController extends Controller
         $this->data['page_title'] = 'Dashboard';
         return view('admin.dashboard', ['data' => $this->data]);
     }
+
+    public function getUsers(Request $request){
+        $users = User::all();
+        $this->data['page_title'] = 'Users List';
+        $return_data['users'] = $users;
+        return view('users', ['data' => array_merge($this->data, $return_data)]);
+    }
 }
