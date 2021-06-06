@@ -17,7 +17,9 @@ class UserController extends Controller
 
     public function postLogin(Request $request){
         $credentials = $request->only('email', 'password');
-        if(Auth::attempt($credentials)){
+        $user = User::where('email', $credentials['email'])->first();
+        if(!empty($user) && Hash::check($credentials['password'], $user->password)){
+            Auth::loginUsingId($user->id);
             return redirect('dashboard')->with('success_message', 'Logged In!');
         }else{
             return back()->with('error_message', 'Incorrect credentials');
