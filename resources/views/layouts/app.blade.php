@@ -51,8 +51,11 @@
 	<script src="{{asset('vendor/apexchart/apexchart.js')}}"></script>
 
 	<!-- Dashboard 1 -->
-	<script src="{{asset('js/dashboard/dashboard-1.js')}}"></script>
+	{{-- <script src="{{asset('js/dashboard/dashboard-1.js')}}"></script> --}}
 	<script>
+        $(function () {
+            base_url = "{{URL::to('/').'/'}}";
+        });
 		function carouselReview(){
 			/*  testimonial one function by = owl.carousel.js */
 			jQuery('.testimonial-one').owlCarousel({

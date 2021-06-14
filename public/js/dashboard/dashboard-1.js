@@ -6,7 +6,7 @@
 	let draw = Chart.controllers.line.__super__.draw; //draw shadow
 	var screenWidth = $(window).width();
 	var btnAware = function (){
-		
+
 		$('.avtivity-card')
 			.on('mouseenter', function(e) {
 					var parentOffset = $(this).offset(),
@@ -22,7 +22,7 @@
 		});
 	}
 	var chartTimeline = function(){
-		
+
 		var optionsTimeline = {
 			chart: {
 				type: "bar",
@@ -45,9 +45,9 @@
 				{
 					name: "Retained Clients",
 					data: [-60, -10, -50, -25, -30, -65, -22, -10, -50, -20, -70, -35, -60, -20, -30, -45, -70, -50, -45, -10]
-				} 
+				}
 			],
-			
+
 			plotOptions: {
 				bar: {
 					columnWidth: "20%",
@@ -63,7 +63,7 @@
 				distributed: true
 			},
 			colors:['#0B2A97', '#FF9432'],
-			
+
 			grid: {
 				show: true,
 			},
@@ -92,7 +92,7 @@
 						fontSize: '13px',
 						fontFamily: 'Poppins',
 						fontWeight: 400
-						
+
 					},
 				},
 				crosshairs: {
@@ -102,7 +102,7 @@
 					show: false,
 				},
 			},
-			
+
 			yaxis: {
 				//show: false
 				labels: {
@@ -111,11 +111,11 @@
 						fontSize: '13px',
 						fontFamily: 'Poppins',
 						fontWeight: 400
-						
+
 					},
 				},
 			},
-			
+
 			tooltip: {
 				x: {
 					show: true
@@ -125,7 +125,7 @@
 		var chartTimelineRender =  new ApexCharts(document.querySelector("#chartTimeline"), optionsTimeline);
 		 chartTimelineRender.render();
 	}
-	
+
 	var chartBar = function(){
 		var optionsArea = {
           series: [{
@@ -157,7 +157,7 @@
           tooltipHoverFormatter: function(val, opts) {
             return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
           },
-		  
+
         },
         markers: {
 		  strokeWidth: [8],
@@ -176,7 +176,7 @@
 			  fontSize: '14px',
 			   fontFamily: 'Poppins',
 			  fontWeight: 100,
-			  
+
 			},
 		  },
         },
@@ -188,7 +188,7 @@
 			  fontSize: '14px',
 			   fontFamily: 'Poppins',
 			  fontWeight: 100,
-			  
+
 			},
 		  },
 		},
@@ -237,44 +237,44 @@
 				},
 			}
 		 }
-		 ] 
+		 ]
         };
 		var chartArea = new ApexCharts(document.querySelector("#chartBar"), optionsArea);
         chartArea.render();
 
-	}	
+	}
 	/* Function ============ */
 		return {
 			init:function(){
 			},
-			
-			
+
+
 			load:function(){
 				btnAware();
 				chartTimeline();
 				chartBar();
 			},
-			
+
 			resize:function(){
-				
+
 			}
 		}
-	
+
 	}();
 
 	jQuery(document).ready(function(){
 	});
-		
+
 	jQuery(window).on('load',function(){
 		setTimeout(function(){
 			dzChartlist.load();
-		}, 1000); 
-		
+		}, 1000);
+
 	});
 
 	jQuery(window).on('resize',function(){
-		
-		
-	});     
+
+
+	});
 
 })(jQuery);

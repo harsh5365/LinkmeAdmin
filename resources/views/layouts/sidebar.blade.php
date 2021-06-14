@@ -101,6 +101,11 @@
                     <span class="nav-text">{{ 'User' }}</span>
                 </a>
             </li>
+            <li><a href="{{ url('list_categories') }}" class="ai-icon" aria-expanded="false">
+                <i class="flaticon-381-user-8"></i>
+                <span class="nav-text">{{ 'Categories' }}</span>
+            </a>
+        </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-notepad"></i>
                     <span class="nav-text">Forms</span>

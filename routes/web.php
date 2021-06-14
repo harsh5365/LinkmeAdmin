@@ -24,4 +24,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [UserController::class, 'getDashboard']);
     Route::get('users', [UserController::class, 'getUsers']);
     Route::get('logout', [UserController::class, 'logOut']);
+    Route::get('list_categories', [UserController::class, 'listCategories']);
+    Route::get('add_categories', [UserController::class, 'AddCategories']);
+    Route::get('delete_category/{id}', [UserController::class, 'deleteCategory']);
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,5 +42,22 @@ class UserController extends Controller
     public function logOut(){
         Auth::logout();
         return redirect('login')->with('success_message', 'Logged Out Successfully');
+    }
+
+    public function listCategories(Request $request){
+        $this->data['page_title'] = 'Categories List';
+        $return_data = [];
+        $return_data['current_categories'] = Category::all();
+        return view('categories', ['data' => array_merge($this->data, $return_data)]);
+    }
+
+    public function AddCategories(Request $request){
+        $cat = Category::saveCategory($request->only('category'));
+        return json_encode(['status' => 200, 'msg' => 'Added new Category']);
+    }
+
+    public function deleteCategory($id){
+        Category::where('_id', $id)->delete();
+        return redirect('list_categories')->with(['status' => 200, 'msg' => 'Category deleted Successfully']);
     }
 }
