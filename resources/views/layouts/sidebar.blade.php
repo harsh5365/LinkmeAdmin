@@ -102,7 +102,7 @@
                 </a>
             </li>
             <li><a href="{{ url('list_categories') }}" class="ai-icon" aria-expanded="false">
-                <i class="flaticon-381-user-8"></i>
+                <i class="flaticon-381-windows"></i>
                 <span class="nav-text">{{ 'Categories' }}</span>
             </a>
         </li>
